@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { CardUser } from "./components/CardUser";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { Filter } from "./components/Filter";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
   const perPage = 6;
 
   useEffect(() => {
@@ -13,9 +15,22 @@ export default function Users() {
       .then(setUsers);
   }, []);
 
-  const totalPages = Math.ceil(users.length / perPage);
+  const filteredUsers = users.filter((user) => {
+    const term = search.toLowerCase();
+
+    const nome = (user.nome || "").toLowerCase();
+    const cargo = (user.cargo || "").toLowerCase();
+    const skills = (user.habilidadesTecnicas || []).join(" ").toLowerCase();
+    const softskills = (user.softSkills || []).join(" ").toLowerCase();
+
+    const fullText = `${nome} ${cargo} ${skills} ${softskills}`;
+
+    return fullText.includes(term);
+  });
+
+  const totalPages = Math.ceil(filteredUsers.length / perPage);
   const start = (page - 1) * perPage;
-  const current = users.slice(start, start + perPage);
+  const current = filteredUsers.slice(start, start + perPage);
 
   const pages = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -55,10 +70,14 @@ export default function Users() {
         Usuários conectados
       </h1>
 
+      <Filter search={search} setSearch={setSearch} />
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-4xl">
-        {current.map((user) => (
-          <CardUser key={user.id} userData={user} />
-        ))}
+        {current.length > 0 ? (
+          current.map((user) => <CardUser key={user.id} userData={user} />)
+        ) : (
+          <p className="col-2 text-center font-semibold">Nenhum usuário encontrado</p>
+        )}
       </div>
 
       {totalPages > 1 && (
