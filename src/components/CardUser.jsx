@@ -1,26 +1,10 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export function CardUser({ userData, userId }) {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    if (userData && userId) {
-      const found = userData.find((item) => item.id == userId);
-      setUser(found);
-    }
-  }, [userData, userId]);
-
-  if (!user) {
-    return (
-      <div className="text-center py-10 text-gray-500 font-medium">
-        Carregando informações...
-      </div>
-    );
-  }
+export function CardUser({ userData}) {
+  const user = userData;
 
   return (
-    <div className="max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg bg-white hover:-translate-y-1 hover:cursor-pointer transition-all">
+    <div className="w-[290px] sm:max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg bg-white hover:-translate-y-1 hover:cursor-pointer transition-all">
       <div className="bg-blue-500 h-32 relative">
         <div className="absolute -bottom-12 left-6 flex items-center gap-4 ">
           <img
