@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 export function CardUser({ userData }) {
   const user = userData;
 
+  const softSkills = user.softSkills || [];
+
   return (
     <div className="w-[290px] sm:max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg bg-white hover:-translate-y-1 transition-all dark:bg-[#383838]">
       <div className="bg-blue-500 h-32 relative dark:bg-purple-500">
@@ -40,9 +42,8 @@ export function CardUser({ userData }) {
                 ? user.habilidadesTecnicas.join(" | ")
                 : user.habilidadesTecnicas}
             </span>
-
             <div className="flex flex-wrap gap-2 mt-1">
-              {user.softSkills?.map((softSkill, index) => (
+              {softSkills.map((softSkill, index) => (
                 <span
                   key={index}
                   className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-semibold shadow-sm dark:bg-purple-100 dark:text-purple-700"

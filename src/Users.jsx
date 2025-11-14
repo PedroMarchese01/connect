@@ -66,7 +66,7 @@ export default function Users() {
 
   return (
     <section>
-      <div className="p-6 bg-[#f9f9f9] min-h-screen flex flex-col items-center dark:bg-dark">
+      <div className="p-6 bg-zinc-50 min-h-screen flex flex-col items-center dark:bg-dark">
         <h1 className="mb-8 font-bold text-2xl md:text-4xl text-center dark:text-white">
           Usuários conectados
         </h1>
