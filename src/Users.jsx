@@ -45,8 +45,8 @@ export default function Users() {
           onClick={() => setPage(i)}
           className={`px-3 py-1 rounded ${
             page === i
-              ? "bg-blue-500 text-white"
-              : "bg-gray-200 hover:cursor-pointer"
+              ? "bg-blue-500 text-white dark:bg-purple-500"
+              : "bg-gray-200 hover:cursor-pointer dark:bg-white"
           }`}
         >
           {i}
@@ -57,7 +57,7 @@ export default function Users() {
       (i === page + 2 && i < totalPages)
     ) {
       pages.push(
-        <span key={`dots-${i}`} className="px-2">
+        <span key={`${i}`} className="px-2 dark:text-white">
           ...
         </span>
       );
@@ -65,42 +65,46 @@ export default function Users() {
   }
 
   return (
-    <section className="p-6 bg-[#f9f9f9] min-h-screen flex flex-col items-center">
-      <h1 className="mb-8 font-bold text-2xl md:text-4xl text-center">
-        Usuários conectados
-      </h1>
+    <section>
+      <div className="p-6 bg-[#f9f9f9] min-h-screen flex flex-col items-center dark:bg-dark">
+        <h1 className="mb-8 font-bold text-2xl md:text-4xl text-center dark:text-white">
+          Usuários conectados
+        </h1>
 
-      <Filter search={search} setSearch={setSearch} />
+        <Filter search={search} setSearch={setSearch} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-4xl">
-        {current.length > 0 ? (
-          current.map((user) => <CardUser key={user.id} userData={user} />)
-        ) : (
-          <p className="col-2 text-center font-semibold">Nenhum usuário encontrado</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-4xl">
+          {current.length > 0 ? (
+            current.map((user) => <CardUser key={user.id} userData={user} />)
+          ) : (
+            <p className="col-2 text-center font-semibold">
+              Nenhum usuário encontrado
+            </p>
+          )}
+        </div>
+
+        {totalPages > 1 && (
+          <div className="flex items-center gap-2 mt-8">
+            <button
+              onClick={() => setPage((p) => Math.max(p - 1, 1))}
+              disabled={page === 1}
+              className="disabled:opacity-50 hover:cursor-pointer mr-4"
+            >
+              <IoIosArrowBack className="dark:text-white" />
+            </button>
+
+            {pages}
+
+            <button
+              onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
+              disabled={page === totalPages}
+              className="disabled:opacity-50 hover:cursor-pointer ml-4"
+            >
+              <IoIosArrowForward className="dark:text-white" />
+            </button>
+          </div>
         )}
       </div>
-
-      {totalPages > 1 && (
-        <div className="flex items-center gap-2 mt-8">
-          <button
-            onClick={() => setPage((p) => Math.max(p - 1, 1))}
-            disabled={page === 1}
-            className="disabled:opacity-50 hover:cursor-pointer mr-4"
-          >
-            <IoIosArrowBack />
-          </button>
-
-          {pages}
-
-          <button
-            onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
-            disabled={page === totalPages}
-            className="disabled:opacity-50 hover:cursor-pointer ml-4"
-          >
-            <IoIosArrowForward />
-          </button>
-        </div>
-      )}
     </section>
   );
 }
