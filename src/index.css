@@ -8,6 +8,11 @@ body {
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-white: #f9f9f9;
+  --color-dark: #1c1c1c;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

@@ -1,12 +1,28 @@
-import { TbArrowGuideFilled } from "react-icons/tb";
+import { FiSun } from "react-icons/fi";
+import { IoIosMoon } from "react-icons/io";
 
-export default function Navbar() {
+export default function Navbar({ isDark, toggler }) {
   return (
     <>
-      <div className="fixed top-4 left-4 z-100">
-        <div className="bg-black rounded-full w-12 lg:w-16 h-12 lg:h-16 flex justify-center items-center">
-          <TbArrowGuideFilled className="fixed w-8 lg:w-12 h-8 lg:h-12 text-white" />
-        </div>
+      <div className="flex justify-between border-black border-b-2 p-4 dark:bg-dark dark:text-white dark:border-white">
+        <p className="text-2xl font-semibold text-blue-900 dark:text-purple-400">
+          Connect
+        </p>
+
+        <label className="cursor-pointer flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={isDark}
+            onChange={toggler}
+            className="hidden"
+          />
+
+          {isDark ? (
+            <IoIosMoon className="text-2xl text-yellow-300 transition-all duration-300" />
+          ) : (
+            <FiSun className="text-2xl text-yellow-500 transition-all duration-300" />
+          )}
+        </label>
       </div>
     </>
   );
