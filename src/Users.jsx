@@ -10,9 +10,14 @@ export default function Users() {
   const perPage = 6;
 
   useEffect(() => {
-    fetch("https://6915020884e8bd126af85e15.mockapi.io/connect/users")
-      .then((r) => r.json())
-      .then(setUsers);
+    async function loadUsers() {
+      const api = import.meta.env.VITE_MOCKAPI_URL;
+      const response = await fetch(api);
+      const data = await response.json();
+      setUsers(data);
+    }
+
+    loadUsers();
   }, []);
 
   const filteredUsers = users.filter((user) => {
