@@ -12,7 +12,7 @@ export function CardUser({ userData }) {
           <img
             src={user.foto || "https://placehold.co/150x150"}
             alt={user.nome || "Usuário"}
-            className="w-24 h-24 rounded-full border-4 border-white shadow-md object-cover"
+            className="w-24 h-24 rounded-full border-4 border-white dark:border-[#383838] object-cover"
           />
           <Link
             to={`/modal/${user.id}`}
