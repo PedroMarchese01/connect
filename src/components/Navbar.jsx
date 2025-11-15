@@ -1,13 +1,14 @@
 import { FiSun } from "react-icons/fi";
 import { IoIosMoon } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ isDark, toggler }) {
   return (
     <>
       <div className="flex justify-between border-black border-b-2 p-4 dark:bg-dark dark:text-white dark:border-white">
-        <p className="text-2xl font-semibold text-blue-900 dark:text-purple-400">
+        <Link to="/" className="text-2xl font-semibold text-blue-900 dark:text-purple-400">
           Connect
-        </p>
+        </Link>
 
         <label className="cursor-pointer flex items-center gap-2">
           <input
