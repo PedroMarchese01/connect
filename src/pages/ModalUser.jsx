@@ -13,9 +13,8 @@ export function ModalUser() {
 
   useEffect(() => {
     async function loadUsers() {
-      const response = await fetch(
-        "https://6915020884e8bd126af85e15.mockapi.io/connect/users"
-      );
+      const api = import.meta.env.VITE_MOCKAPI_URL;
+      const response = await fetch(api);
       const data = await response.json();
 
       setUserData(data[userIndex]);
@@ -74,7 +73,7 @@ export function ModalUser() {
               </div>
             </div>
             <div className="flex gap-1 w-full">
-              <SendMensage/>
+              <SendMensage />
               <RecommendProfessional />
             </div>
           </div>
