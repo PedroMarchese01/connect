@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import { FiArrowLeft } from "react-icons/fi";
+import { SendMensage } from "@/components/SendMensage";
+import { RecommendProfessional } from "@/components/RecommendProfessional";
 
 export function ModalUser() {
   const { index } = useParams();
@@ -71,6 +73,10 @@ export function ModalUser() {
                 ))}
               </div>
             </div>
+            <div className="flex gap-1 w-full">
+              <SendMensage/>
+              <RecommendProfessional />
+            </div>
           </div>
 
           <div className="flex flex-col dark:bg-[#262b30] shadow-lg rounded-2xl overflow-hidden pl-6 py-6 bg-zinc-100">
@@ -125,7 +131,12 @@ export function ModalUser() {
               >
                 <h2 className="text-xl">Projetos</h2>
                 <p className="text-sm dark:text-zinc-400">{proj.titulo}</p>
-                <a href={`${proj.link}`} className="text-sm dark:text-zinc-400 underline hover:text-blue-700 dark:hover:text-purple-500 w-fit">Clique aqui no link para visualizar o projeto</a>
+                <a
+                  href={`${proj.link}`}
+                  className="text-sm dark:text-zinc-400 underline hover:text-blue-700 dark:hover:text-purple-500 w-fit"
+                >
+                  Clique aqui no link para visualizar o projeto
+                </a>
                 <p className="text-sm dark:text-zinc-400">{proj.descricao}</p>
               </div>
             );
