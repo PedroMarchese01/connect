@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
+import { BackTop, DatePicker } from 'antd';
+
 export default function Layout() {
   const [isDark, setIsDark] = useState(
     localStorage.getItem("isDark") === "true"
@@ -18,6 +20,7 @@ export default function Layout() {
 
   return (
     <>
+    <BackTop />
       <div className={isDark ? "dark" : ""}>
         <nav>
           <Navbar isDark={isDark} setDark={setIsDark} toggler={toggleTheme} />
