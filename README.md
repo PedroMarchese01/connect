@@ -54,6 +54,55 @@ Você pode acessar o projeto através da Vercel neste link:
    ```bash
    git clone https://github.com/PedroMarchese01/connect.git
 
+2. Trocar para o repositório correto (caso não esteja):  
+   ```bash
+   cd connect
+
+3. Fazer instalação do npm:  
+   ```bash
+   npm i
+
+4. Adicionar o arquivo .env:  
+   ```bash
+   VITE_MOCKAPI_URL = "suaAPI"
+
+5. Exemplificação de arquivo JSON aceitado no projeto:  
+   ```bash
+   {
+    "id": 1,
+    "nome": "Ana Souza",
+    "foto": "https://randomuser.me/api/portraits/men/0.jpg",
+    "cargo": "Desenvolvedor Front-End",
+    "resumo": "Profissional com experiência em HTML e Dados.",
+    "localizacao": "Salvador/BA",
+    "area": "Desenvolvimento",
+    "habilidadesTecnicas": [
+      "HTML",
+      "AWS",
+      "CSS",
+      "Docker"
+    ],
+    "softSkills": [
+      "Resiliência",
+      "Comunicação",
+      "Proatividade"
+    ],
+    "experiencias": [
+      {
+        "empresa": "Empresa Inova",
+        "cargo": "Analista de Sistemas",
+        "inicio": "2018-01",
+        "fim": "2022-04",
+        "descricao": "Responsável pelo desenvolvimento e manutenção de sistemas corporativos."
+      }
+    ]
+    } ´´´
+
+6. Ver no localhost:  
+   ```bash
+   npm run dev
+    
+
 ## 👨‍💻 Autores
 
 - [Augusto Valerio](https://github.com/Augusto-Valerio) RM: 562185
