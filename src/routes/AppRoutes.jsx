@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
         element: <Users />,
       },
       {
-        path: "/modal/:index",
+        path: "modal/:index",
         element: <ModalUser />,
       },
     ],
