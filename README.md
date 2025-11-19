@@ -48,6 +48,12 @@ Você pode acessar o projeto através da Vercel neste link:
 
 ---
 
+## ⬇️ Como Executar o Projeto
+
+1. Clone o repositório:  
+   ```bash
+   git clone https://github.com/PedroMarchese01/connect.git
+
 ## 👨‍💻 Autores
 
 - [Augusto Valerio](https://github.com/Augusto-Valerio) RM: 562185
