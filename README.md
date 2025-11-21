@@ -1,5 +1,5 @@
 <h1 align="center">Connect</h1>
-
+<p align="center">Link do repositório: <a href = "https://github.com/PedroMarchese01/connect">https://github.com/PedroMarchese01/connect</p></a>
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
